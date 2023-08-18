@@ -1,30 +1,27 @@
-%global _lto_cflags %{_lto_cflags} -ffat-lto-objects
 %define _name gst-plugins-rs
 %define gst_branch 1.0
 # Disable csound for now, bring issue upstream
 #%%global __requires_exclude pkgconfig\\(csound\\)
 
-%ifarch s390 s390x ppc ppc64
 %bcond_with aws
 %else
 %bcond_without aws
 %endif
 
 Name:           gstreamer-plugins-rs
-Version:        0.10.11
-Release:        0
+Version:        0.11.0
+Release:        1
 Summary:        GStreamer Streaming-Media Framework Plug-Ins
 License:        LGPL-2.1-or-later
 Group:          Productivity/Multimedia/Other
 URL:            https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs
-
-Source:         %{_name}-%{version}.tar.xz
+Source0:        https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/%{version}/gst-plugins-rs-%{version}.tar.bz2
 Source2:        vendor.tar.zst
 Source3:        cargo_config
 Source4:        gstreamer-plugins-rs.appdata.xml
 
 BuildRequires:  cargo-c
-BuildRequires:  cargo-packaging >= 1.2.0+3
+#BuildRequires:  cargo-packaging >= 1.2.0+3
 BuildRequires:  clang
 # Disable csound for now, bring issue upstream
 #BuildRequires:  csound-devel
@@ -33,7 +30,7 @@ BuildRequires:  git
 BuildRequires:  meson >= 0.60
 BuildRequires:  nasm
 BuildRequires:  pkgconfig
-BuildRequires:  python3-tomli
+BuildRequires:  python3dist(tomli)
 BuildRequires:  zstd
 BuildRequires:  pkgconfig(cairo) >= 1.10.0
 BuildRequires:  pkgconfig(dav1d)
