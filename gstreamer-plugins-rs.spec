@@ -2,7 +2,7 @@
 %define gst_branch 1.0
 # Disable csound for now, bring issue upstream
 #%%global __requires_exclude pkgconfig\\(csound\\)
-
+%if
 %bcond_with aws
 %else
 %bcond_without aws
