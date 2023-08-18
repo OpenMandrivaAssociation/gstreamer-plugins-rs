@@ -2,11 +2,6 @@
 %define gst_branch 1.0
 # Disable csound for now, bring issue upstream
 #%%global __requires_exclude pkgconfig\\(csound\\)
-%if
-%bcond_with aws
-%else
-%bcond_without aws
-%endif
 
 Name:           gstreamer-plugins-rs
 Version:        0.11.0
@@ -91,10 +86,8 @@ export RUSTFLAGS="%{build_rustflags}"
 	-Ddav1d=auto \
 	-Dsodium=enabled \
 	-Dcsound=disabled \
-%if %{without aws}
-	-Daws=disabled \
-%endif
-	%{nil}
+	-Daws=disabled
+
 %meson_build
 
 %install
@@ -107,9 +100,6 @@ cp %{SOURCE4} %{buildroot}%{_datadir}/appdata/
 %license LICENSE-APACHE LICENSE-LGPLv2 LICENSE-MIT
 %doc README.md
 %dir %{_libdir}/gstreamer-%{gst_branch}
-%if %{with aws}
-%{_libdir}/gstreamer-%{gst_branch}/libgstaws.so
-%endif
 %{_libdir}/gstreamer-%{gst_branch}/libgstcdg.so
 %{_libdir}/gstreamer-%{gst_branch}/libgstclaxon.so
 # Disable csound for now, bring issue upstream
