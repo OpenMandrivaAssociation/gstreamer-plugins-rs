@@ -16,6 +16,7 @@ Source0:        https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archiv
 Source4:        gstreamer-plugins-rs.appdata.xml
 
 BuildRequires:	rust
+BuildRequires:	cargo
 BuildRequires:  cargo-c
 #BuildRequires:  cargo-packaging >= 1.2.0+3
 BuildRequires:  clang
