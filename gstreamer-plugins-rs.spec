@@ -4,15 +4,15 @@
 #%%global __requires_exclude pkgconfig\\(csound\\)
 
 Name:           gstreamer-plugins-rs
-Version:        0.11.0
+Version:        0.11.2
 Release:        1
 Summary:        GStreamer Streaming-Media Framework Plug-Ins
 License:        LGPL-2.1-or-later
 Group:          Productivity/Multimedia/Other
 URL:            https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs
 Source0:        https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/%{version}/gst-plugins-rs-%{version}.tar.bz2
-#Source2:        vendor.tar.xz
-#Source3:        cargo_config
+Source2:        vendor.tar.xz
+Source3:        cargo_config
 Source4:        gstreamer-plugins-rs.appdata.xml
 
 BuildRequires:	rust
