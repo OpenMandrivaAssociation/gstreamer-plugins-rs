@@ -1,2 +1,3 @@
 sources:
-  gst-plugins-rs-0.11.0.tar.bz2: fe609bf619f6574daba4071c4f1315a5d88081dc
+ gst-plugins-rs-0.11.2.tar.bz2: b2f4259c711b25b45edf495f46bcf92f0fa9af9d
+ vendor.tar.xz: dafea5221d2a8a49cd303c9b31afef4cb0f24378
