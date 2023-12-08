@@ -80,7 +80,7 @@ plugins.
 %build
 # Disable csound for now, bring issue upstream
 #export CSOUND_LIB_DIR=%%{_libdir}
-export RUSTFLAGS="%{build_rustflags}"
+#export RUSTFLAGS="%{build_rustflags}"
 
 %meson \
 	--default-library=shared \
@@ -93,7 +93,7 @@ export RUSTFLAGS="%{build_rustflags}"
 %meson_build
 
 %install
-export RUSTFLAGS="%{build_rustflags}"
+#export RUSTFLAGS="%{build_rustflags}"
 %meson_install
 mkdir -p %{buildroot}%{_datadir}/appdata
 cp %{SOURCE4} %{buildroot}%{_datadir}/appdata/
