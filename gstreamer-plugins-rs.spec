@@ -85,7 +85,7 @@ plugins.
 %meson \
 	--default-library=shared \
 	-Ddoc=disabled \
-	-Ddav1d=auto \
+	-Ddav1d=disabled \
 	-Dsodium=enabled \
 	-Dcsound=disabled \
 	-Daws=disabled
