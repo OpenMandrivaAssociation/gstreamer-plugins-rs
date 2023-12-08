@@ -74,7 +74,7 @@ This package contains the pkgconfig development files for the rust
 plugins.
 
 %prep
-%autosetup -n %{_name}-gstreamer-%{version} -p1
+%autosetup -n %{_name}-gstreamer-%{version} -a2 -p1
 mkdir .cargo
 cp %{SOURCE3} .cargo/config
 
