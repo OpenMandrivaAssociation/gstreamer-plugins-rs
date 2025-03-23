@@ -4,21 +4,21 @@
 #%%global __requires_exclude pkgconfig\\(csound\\)
 
 Name:           gstreamer-plugins-rs
-Version:        0.11.0
+Version:        1.26.0
 Release:        1
 Summary:        GStreamer Streaming-Media Framework Plug-Ins
 License:        LGPL-2.1-or-later
 Group:          Productivity/Multimedia/Other
 URL:            https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs
-Source0:        https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/%{version}/gst-plugins-rs-%{version}.tar.bz2
-#Source2:        vendor.tar.xz
+Source0:        https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/gstreamer-%{version}/gst-plugins-rs-gstreamer-%{version}.tar.bz2
+Source2:        vendor.tar.xz
 #Source3:        cargo_config
 Source4:        gstreamer-plugins-rs.appdata.xml
 
 BuildRequires:	rust
 BuildRequires:	cargo
 BuildRequires:  cargo-c
-#BuildRequires:  cargo-packaging >= 1.2.0+3
+BuildRequires:  rust-packaging
 BuildRequires:  clang
 # Disable csound for now, bring issue upstream
 #BuildRequires:  csound-devel
@@ -40,10 +40,8 @@ BuildRequires:  pkgconfig(libsodium)
 BuildRequires:  pkgconfig(libwebp)
 BuildRequires:  pkgconfig(openssl)
 BuildRequires:  pkgconfig(pango)
-Requires:       gstreamer
-Requires:       gstreamer-plugins-base
-Enhances:       gstreamer
-ExcludeArch:    ppc ppc64 ppc64le s390
+Requires:       gstreamer1.0-tools
+Requires:       gstreamer1.0-plugins-base
 
 %description
 GStreamer is a streaming media framework based on graphs of filters
@@ -73,7 +71,7 @@ This package contains the pkgconfig development files for the rust
 plugins.
 
 %prep
-%autosetup -n %{_name}-%{version} -p1
+%autosetup -n gst-plugins-rs-gstreamer-%{version} -a2 -p1
 #mkdir .cargo
 #cp %{SOURCE3} .cargo/config
 
@@ -88,6 +86,7 @@ export RUSTFLAGS="%{build_rustflags}"
 	-Ddav1d=auto \
 	-Dsodium=enabled \
 	-Dcsound=disabled \
+ 	-Dvvdec=disabled \
 	-Daws=disabled
 
 %meson_build
@@ -142,6 +141,16 @@ cp %{SOURCE4} %{buildroot}%{_datadir}/appdata/
 %{_libdir}/gstreamer-%{gst_branch}/libgsttogglerecord.so
 %{_libdir}/gstreamer-%{gst_branch}/libgsturiplaylistbin.so
 %{_libdir}/gstreamer-%{gst_branch}/libgstwebrtchttp.so
+%{_libdir}/gstreamer-%{gst_branch}/libgstgopbuffer.so
+%{_libdir}/gstreamer-%{gst_branch}/libgsthlsmultivariantsink.so
+%{_libdir}/gstreamer-%{gst_branch}/libgstmpegtslive.so
+%{_libdir}/gstreamer-%{gst_branch}/libgstoriginalbuffer.so
+%{_libdir}/gstreamer-%{gst_branch}/libgstquinn.so
+%{_libdir}/gstreamer-%{gst_branch}/libgstrsinter.so
+%{_libdir}/gstreamer-%{gst_branch}/libgstrsrelationmeta.so
+%{_libdir}/gstreamer-%{gst_branch}/libgstrsrtsp.so
+%{_libdir}/gstreamer-%{gst_branch}/libgstspeechmatics.so
+%{_libdir}/gstreamer-%{gst_branch}/libgststreamgrouper.so
 %dir %{_datadir}/appdata
 %{_datadir}/appdata/gstreamer-plugins-rs.appdata.xml
 %{_bindir}/gst-webrtc-signalling-server
