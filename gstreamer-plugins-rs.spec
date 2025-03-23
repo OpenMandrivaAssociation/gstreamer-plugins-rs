@@ -40,9 +40,8 @@ BuildRequires:  pkgconfig(libsodium)
 BuildRequires:  pkgconfig(libwebp)
 BuildRequires:  pkgconfig(openssl)
 BuildRequires:  pkgconfig(pango)
-Requires:       gstreamer
-Requires:       gstreamer-plugins-base
-Enhances:       gstreamer
+Requires:       gstreamer1.0-tools
+Requires:       gstreamer1.0-plugins-base
 
 %description
 GStreamer is a streaming media framework based on graphs of filters
