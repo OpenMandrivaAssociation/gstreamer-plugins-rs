@@ -4,21 +4,21 @@
 #%%global __requires_exclude pkgconfig\\(csound\\)
 
 Name:           gstreamer-plugins-rs
-Version:        0.11.0
+Version:        1.26.0
 Release:        1
 Summary:        GStreamer Streaming-Media Framework Plug-Ins
 License:        LGPL-2.1-or-later
 Group:          Productivity/Multimedia/Other
 URL:            https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs
 Source0:        https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/%{version}/gst-plugins-rs-%{version}.tar.bz2
-#Source2:        vendor.tar.xz
+Source2:        vendor.tar.xz
 #Source3:        cargo_config
 Source4:        gstreamer-plugins-rs.appdata.xml
 
 BuildRequires:	rust
 BuildRequires:	cargo
 BuildRequires:  cargo-c
-#BuildRequires:  cargo-packaging >= 1.2.0+3
+BuildRequires:  rust-packaging
 BuildRequires:  clang
 # Disable csound for now, bring issue upstream
 #BuildRequires:  csound-devel
@@ -43,7 +43,6 @@ BuildRequires:  pkgconfig(pango)
 Requires:       gstreamer
 Requires:       gstreamer-plugins-base
 Enhances:       gstreamer
-ExcludeArch:    ppc ppc64 ppc64le s390
 
 %description
 GStreamer is a streaming media framework based on graphs of filters
@@ -73,7 +72,7 @@ This package contains the pkgconfig development files for the rust
 plugins.
 
 %prep
-%autosetup -n %{_name}-%{version} -p1
+%autosetup -n gst-plugins-rs-gstreamer-%{version} -a2 -p1
 #mkdir .cargo
 #cp %{SOURCE3} .cargo/config
 
