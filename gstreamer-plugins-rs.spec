@@ -4,7 +4,7 @@
 #%%global __requires_exclude pkgconfig\\(csound\\)
 
 Name:           gstreamer-plugins-rs
-Version:        1.26.0
+Version:        1.26.1
 Release:        1
 Summary:        GStreamer Streaming-Media Framework Plug-Ins
 License:        LGPL-2.1-or-later
@@ -72,8 +72,41 @@ plugins.
 
 %prep
 %autosetup -n gst-plugins-rs-gstreamer-%{version} -a2 -p1
-#mkdir .cargo
-#cp %{SOURCE3} .cargo/config
+%cargo_prep -v vendor
+
+cat >>Cargo.toml <<EOF
+
+[source.crates-io]
+replace-with = "vendored-sources"
+
+[source."git+https://github.com/gtk-rs/gtk-rs-core?branch=main"]
+git = "https://github.com/gtk-rs/gtk-rs-core"
+branch = "main"
+replace-with = "vendored-sources"
+
+[source."git+https://github.com/gtk-rs/gtk4-rs?branch=main"]
+git = "https://github.com/gtk-rs/gtk4-rs"
+branch = "main"
+replace-with = "vendored-sources"
+
+[source."git+https://github.com/rust-av/ffv1.git?rev=bd9eabfc14c9ad53c37b32279e276619f4390ab8"]
+git = "https://github.com/rust-av/ffv1.git"
+rev = "bd9eabfc14c9ad53c37b32279e276619f4390ab8"
+replace-with = "vendored-sources"
+
+[source."git+https://github.com/rust-av/flavors"]
+git = "https://github.com/rust-av/flavors"
+replace-with = "vendored-sources"
+
+[source."git+https://gitlab.freedesktop.org/gstreamer/gstreamer-rs?branch=main"]
+git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs"
+branch = "main"
+replace-with = "vendored-sources"
+
+[source.vendored-sources]
+directory = "vendor"
+
+EOF
 
 %build
 # Disable csound for now, bring issue upstream
