@@ -1,3 +1,3 @@
 sources:
-  gst-plugins-rs-gstreamer-1.26.0.tar.bz2: c28af0e3e1d2c41e2cc7996f2b7197d0eef064f3
-  vendor.tar.xz: 0070bea06d3d2c4f7f5666164675b9ccab555878
+  gst-plugins-rs-gstreamer-1.26.1.tar.bz2: 1c546423a39e8da8b8e6c44146a29a6dbfac8ea0
+  vendor.tar.xz: d373d66597a9b3d9498fc2a80efd4425570032ae
