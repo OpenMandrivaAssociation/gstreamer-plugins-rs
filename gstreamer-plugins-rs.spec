@@ -72,7 +72,7 @@ plugins.
 
 %prep
 %autosetup -n gst-plugins-rs-gstreamer-%{version} -a1 -p1
-%cargo_prep -v vendor
+#cargo_prep -v vendor
 
 tar xf %{S:2}
 mkdir .cargo
