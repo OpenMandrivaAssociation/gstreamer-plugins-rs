@@ -71,11 +71,12 @@ This package contains the pkgconfig development files for the rust
 plugins.
 
 %prep
-%autosetup -n gst-plugins-rs-gstreamer-%{version} -a2 -p1
+%autosetup -n gst-plugins-rs-gstreamer-%{version} -a1 -p1
 %cargo_prep -v vendor
 
-cat >>Cargo.toml <<EOF
-
+tar xf %{S:2}
+mkdir .cargo
+cat >>.cargo/config.toml <<EOF
 [source.crates-io]
 replace-with = "vendored-sources"
 
@@ -105,7 +106,6 @@ replace-with = "vendored-sources"
 
 [source.vendored-sources]
 directory = "vendor"
-
 EOF
 
 %build
