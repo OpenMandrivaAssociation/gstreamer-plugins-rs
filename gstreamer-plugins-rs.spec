@@ -4,7 +4,7 @@
 #%%global __requires_exclude pkgconfig\\(csound\\)
 
 Name:           gstreamer-plugins-rs
-Version:        1.26.1
+Version:        1.26.3
 Release:        1
 Summary:        GStreamer Streaming-Media Framework Plug-Ins
 License:        LGPL-2.1-or-later
@@ -75,7 +75,6 @@ plugins.
 %cargo_prep -v vendor
 
 cat >>Cargo.toml <<EOF
-
 [source.crates-io]
 replace-with = "vendored-sources"
 
@@ -105,7 +104,6 @@ replace-with = "vendored-sources"
 
 [source.vendored-sources]
 directory = "vendor"
-
 EOF
 
 %build
