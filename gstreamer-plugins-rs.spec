@@ -178,7 +178,8 @@ cp %{SOURCE4} %{buildroot}%{_datadir}/appdata/
 %{_libdir}/gstreamer-%{gst_branch}/libgstoriginalbuffer.so
 %{_libdir}/gstreamer-%{gst_branch}/libgstquinn.so
 %{_libdir}/gstreamer-%{gst_branch}/libgstrsinter.so
-#{_libdir}/gstreamer-%{gst_branch}/libgstrsrelationmeta.so
+%{_libdir}/gstreamer-%{gst_branch}/libgstelevenlabs.so
+%{_libdir}/gstreamer-%{gst_branch}/libgstrsanalytics.so
 %{_libdir}/gstreamer-%{gst_branch}/libgstrsrtsp.so
 %{_libdir}/gstreamer-%{gst_branch}/libgstspeechmatics.so
 %{_libdir}/gstreamer-%{gst_branch}/libgststreamgrouper.so
