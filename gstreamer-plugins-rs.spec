@@ -72,8 +72,8 @@ plugins.
 
 %prep
 %autosetup -n gst-plugins-rs-gstreamer-%{version} -a2 -p1
-%cargo_prep -v 
-#vendor
+%cargo_prep 
+#-v vendor
 
 cat >>Cargo.toml <<EOF
 [source.crates-io]
