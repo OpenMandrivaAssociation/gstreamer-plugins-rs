@@ -72,10 +72,9 @@ plugins.
 
 %prep
 %autosetup -n gst-plugins-rs-gstreamer-%{version} -a2 -p1
-%cargo_prep 
-#-v vendor
-
-cat >>Cargo.toml <<EOF
+#cargo_prep -v vendor
+mkdir -p .cargo
+cat >> .cargo/config.toml << EOF
 [source.crates-io]
 replace-with = "vendored-sources"
 
