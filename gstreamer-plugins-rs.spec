@@ -118,6 +118,7 @@ export RUSTFLAGS="%{build_rustflags}"
 	-Dsodium=enabled \
 	-Dcsound=disabled \
  	-Dvvdec=disabled \
+  	-Dskia=disabled \
 	-Daws=disabled
 
 %meson_build
