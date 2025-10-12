@@ -11,7 +11,7 @@ License:        LGPL-2.1-or-later
 Group:          Productivity/Multimedia/Other
 URL:            https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs
 Source0:        https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/gstreamer-%{version}/gst-plugins-rs-gstreamer-%{version}.tar.bz2
-Source2:        vendor.tar.xz
+Source2:        vendor.tar.zst
 #Source3:        cargo_config
 Source4:        gstreamer-plugins-rs.appdata.xml
 
