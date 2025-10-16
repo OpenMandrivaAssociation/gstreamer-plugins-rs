@@ -1,4 +1,3 @@
-%define _name gst-plugins-rs
 %define gst_branch 1.0
 # Disable csound for now, bring issue upstream
 #%%global __requires_exclude pkgconfig\\(csound\\)
@@ -53,22 +52,22 @@ plug-ins.
 
 This package provides various plugins written in Rust.
 
-%package devel
-Summary:        GStreamer Streaming-Media Framework Plug-Ins development files
-Group:          Development/Libraries/Other
-Requires:       %{name} = %{version}
-#Requires:       csound-devel
+#package devel
+#Summary:        GStreamer Streaming-Media Framework Plug-Ins development files
+#Group:          Development/Libraries/Other
+#Requires:       %{name} = %{version}
+##Requires:       csound-devel
 
-%description devel
-GStreamer is a streaming media framework based on graphs of filters
-that operate on media data. Applications using this library can do
-anything media-related, from real-time sound processing to playing
-videos. Its plug-in-based architecture means that new data types or
-processing capabilities can be added simply by installing new
-plug-ins.
+#description devel
+#GStreamer is a streaming media framework based on graphs of filters
+#that operate on media data. Applications using this library can do
+#anything media-related, from real-time sound processing to playing
+#videos. Its plug-in-based architecture means that new data types or
+#processing capabilities can be added simply by installing new
+#plug-ins.
 
-This package contains the pkgconfig development files for the rust
-plugins.
+#This package contains the pkgconfig development files for the rust
+#plugins.
 
 %prep
 %autosetup -n gst-plugins-rs-gstreamer-%{version} -a2 -p1
@@ -142,7 +141,6 @@ cp %{SOURCE4} %{buildroot}%{_datadir}/appdata/
 %{_libdir}/gstreamer-%{gst_branch}/libgstffv1.so
 %{_libdir}/gstreamer-%{gst_branch}/libgstfmp4.so
 %{_libdir}/gstreamer-%{gst_branch}/libgstgif.so
-%{_libdir}/gstreamer-%{gst_branch}/libgstgtk4.so
 %{_libdir}/gstreamer-%{gst_branch}/libgsthlssink3.so
 %{_libdir}/gstreamer-%{gst_branch}/libgsthsv.so
 %{_libdir}/gstreamer-%{gst_branch}/libgstjson.so
@@ -188,5 +186,5 @@ cp %{SOURCE4} %{buildroot}%{_datadir}/appdata/
 %{_datadir}/appdata/gstreamer-plugins-rs.appdata.xml
 %{_bindir}/gst-webrtc-signalling-server
 
-%files devel
+#files devel
 #{_libdir}/pkgconfig/*.pc
