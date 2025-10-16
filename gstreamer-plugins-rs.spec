@@ -3,8 +3,8 @@
 #%%global __requires_exclude pkgconfig\\(csound\\)
 
 Name:           gstreamer-plugins-rs
-Version:        1.26.3
-Release:        2
+Version:        1.26.7
+Release:        1
 Summary:        GStreamer Streaming-Media Framework Plug-Ins
 License:        LGPL-2.1-or-later
 Group:          Productivity/Multimedia/Other
@@ -41,7 +41,6 @@ BuildRequires:  pkgconfig(openssl)
 BuildRequires:  pkgconfig(pango)
 Requires:       gstreamer1.0-tools
 Requires:       gstreamer1.0-plugins-base
-Recommends:	(%{name}-gtk = %{EVRD} if %{_lib}gtk4_1)
 
 %description
 GStreamer is a streaming media framework based on graphs of filters
@@ -53,29 +52,22 @@ plug-ins.
 
 This package provides various plugins written in Rust.
 
-%package devel
-Summary:        GStreamer Streaming-Media Framework Plug-Ins development files
-Group:          Development/Libraries/Other
-Requires:       %{name} = %{version}
-#Requires:       csound-devel
+#package devel
+#Summary:        GStreamer Streaming-Media Framework Plug-Ins development files
+#Group:          Development/Libraries/Other
+#Requires:       %{name} = %{version}
+##Requires:       csound-devel
 
-%description devel
-GStreamer is a streaming media framework based on graphs of filters
-that operate on media data. Applications using this library can do
-anything media-related, from real-time sound processing to playing
-videos. Its plug-in-based architecture means that new data types or
-processing capabilities can be added simply by installing new
-plug-ins.
+#description devel
+#GStreamer is a streaming media framework based on graphs of filters
+#that operate on media data. Applications using this library can do
+#anything media-related, from real-time sound processing to playing
+#videos. Its plug-in-based architecture means that new data types or
+#processing capabilities can be added simply by installing new
+#plug-ins.
 
-This package contains the pkgconfig development files for the rust
-plugins.
-
-%package gtk
-Summary:	GTK based GStreamer plugins
-Requires:	%{name} = %{EVRD}
-
-%description gtk
-GTK based GStreamer plugins
+#This package contains the pkgconfig development files for the rust
+#plugins.
 
 %prep
 %autosetup -n gst-plugins-rs-gstreamer-%{version} -a2 -p1
@@ -85,14 +77,14 @@ cat >> .cargo/config.toml << EOF
 [source.crates-io]
 replace-with = "vendored-sources"
 
-[source."git+https://github.com/gtk-rs/gtk-rs-core?branch=main"]
+[source."git+https://github.com/gtk-rs/gtk-rs-core?branch=0.21"]
 git = "https://github.com/gtk-rs/gtk-rs-core"
-branch = "main"
+branch = "0.21"
 replace-with = "vendored-sources"
 
-[source."git+https://github.com/gtk-rs/gtk4-rs?branch=main"]
+[source."git+https://github.com/gtk-rs/gtk4-rs?branch=0.10"]
 git = "https://github.com/gtk-rs/gtk4-rs"
-branch = "main"
+branch = "0.10"
 replace-with = "vendored-sources"
 
 [source."git+https://github.com/rust-av/ffv1.git?rev=bd9eabfc14c9ad53c37b32279e276619f4390ab8"]
@@ -104,9 +96,9 @@ replace-with = "vendored-sources"
 git = "https://github.com/rust-av/flavors"
 replace-with = "vendored-sources"
 
-[source."git+https://gitlab.freedesktop.org/gstreamer/gstreamer-rs?branch=main"]
+[source."git+https://gitlab.freedesktop.org/gstreamer/gstreamer-rs?branch=0.24"]
 git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs"
-branch = "main"
+branch = "0.24"
 replace-with = "vendored-sources"
 
 [source.vendored-sources]
@@ -125,6 +117,7 @@ export RUSTFLAGS="%{build_rustflags}"
 	-Dsodium=enabled \
 	-Dcsound=disabled \
  	-Dvvdec=disabled \
+  	-Dskia=disabled \
 	-Daws=disabled
 
 %meson_build
@@ -193,8 +186,5 @@ cp %{SOURCE4} %{buildroot}%{_datadir}/appdata/
 %{_datadir}/appdata/gstreamer-plugins-rs.appdata.xml
 %{_bindir}/gst-webrtc-signalling-server
 
-%files gtk
-%{_libdir}/gstreamer-%{gst_branch}/libgstgtk4.so
-
-%files devel
-%{_libdir}/pkgconfig/*.pc
+#files devel
+#{_libdir}/pkgconfig/*.pc
