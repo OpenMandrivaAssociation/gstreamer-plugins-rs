@@ -189,4 +189,4 @@ cp %{SOURCE4} %{buildroot}%{_datadir}/appdata/
 %{_bindir}/gst-webrtc-signalling-server
 
 %files devel
-%{_libdir}/pkgconfig/*.pc
+#{_libdir}/pkgconfig/*.pc
