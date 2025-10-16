@@ -152,6 +152,7 @@ cp %{SOURCE4} %{buildroot}%{_datadir}/appdata/
 %{_libdir}/gstreamer-%{gst_branch}/libgstrav1e.so
 %{_libdir}/gstreamer-%{gst_branch}/libgstregex.so
 %{_libdir}/gstreamer-%{gst_branch}/libgstreqwest.so
+%{_libdir}/gstreamer-%{gst_branch}/libgstgtk4.so
 %{_libdir}/gstreamer-%{gst_branch}/libgstrsaudiofx.so
 %{_libdir}/gstreamer-%{gst_branch}/libgstrsclosedcaption.so
 %{_libdir}/gstreamer-%{gst_branch}/libgstrsfile.so
