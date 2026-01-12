@@ -23,6 +23,7 @@ BuildRequires:  clang
 #BuildRequires:  csound-devel
 BuildRequires:  llvm
 BuildRequires:  git
+BuildRequires:	make
 BuildRequires:  meson >= 0.60
 BuildRequires:  nasm
 BuildRequires:  pkgconfig
