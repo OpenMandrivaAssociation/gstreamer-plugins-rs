@@ -131,7 +131,7 @@ mkdir -p %{buildroot}%{_datadir}/appdata
 cp %{SOURCE4} %{buildroot}%{_datadir}/appdata/
 
 %files
-%license LICENSE-APACHE LICENSE-LGPLv2 LICENSE-MIT
+%license LICENSE-APACHE LICENSE-MIT
 %doc README.md
 %dir %{_libdir}/gstreamer-%{gst_branch}
 %{_libdir}/gstreamer-%{gst_branch}/libgstcdg.so
@@ -141,14 +141,14 @@ cp %{SOURCE4} %{buildroot}%{_datadir}/appdata/
 %{_libdir}/gstreamer-%{gst_branch}/libgstdav1d.so
 %{_libdir}/gstreamer-%{gst_branch}/libgstfallbackswitch.so
 %{_libdir}/gstreamer-%{gst_branch}/libgstffv1.so
-%{_libdir}/gstreamer-%{gst_branch}/libgstfmp4.so
+#{_libdir}/gstreamer-%{gst_branch}/libgstfmp4.so
 %{_libdir}/gstreamer-%{gst_branch}/libgstgif.so
 %{_libdir}/gstreamer-%{gst_branch}/libgsthlssink3.so
 %{_libdir}/gstreamer-%{gst_branch}/libgsthsv.so
 %{_libdir}/gstreamer-%{gst_branch}/libgstjson.so
 %{_libdir}/gstreamer-%{gst_branch}/libgstlewton.so
 %{_libdir}/gstreamer-%{gst_branch}/libgstlivesync.so
-%{_libdir}/gstreamer-%{gst_branch}/libgstmp4.so
+#{_libdir}/gstreamer-%{gst_branch}/libgstmp4.so
 %{_libdir}/gstreamer-%{gst_branch}/libgstndi.so
 %{_libdir}/gstreamer-%{gst_branch}/libgstraptorq.so
 %{_libdir}/gstreamer-%{gst_branch}/libgstrav1e.so
