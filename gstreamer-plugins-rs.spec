@@ -3,7 +3,7 @@
 #%%global __requires_exclude pkgconfig\\(csound\\)
 
 Name:           gstreamer-plugins-rs
-Version:        1.26.10
+Version:        1.28.2
 Release:        1
 Summary:        GStreamer Streaming-Media Framework Plug-Ins
 License:        LGPL-2.1-or-later
@@ -35,6 +35,7 @@ BuildRequires:  pkgconfig(gstreamer-1.0)
 BuildRequires:  pkgconfig(gstreamer-base-1.0)
 BuildRequires:  pkgconfig(gstreamer-plugins-base-1.0)
 BuildRequires:  pkgconfig(gstreamer-webrtc-1.0)
+BuildRequires:	pkgconfig(gstreamer-validate-1.0)
 BuildRequires:  pkgconfig(gtk4)
 BuildRequires:  pkgconfig(libsodium)
 BuildRequires:  pkgconfig(libwebp)
@@ -78,14 +79,14 @@ cat >> .cargo/config.toml << EOF
 [source.crates-io]
 replace-with = "vendored-sources"
 
-[source."git+https://github.com/gtk-rs/gtk-rs-core?branch=0.21"]
+[source."git+https://github.com/gtk-rs/gtk-rs-core?branch=0.22"]
 git = "https://github.com/gtk-rs/gtk-rs-core"
-branch = "0.21"
+branch = "0.22"
 replace-with = "vendored-sources"
 
-[source."git+https://github.com/gtk-rs/gtk4-rs?branch=0.10"]
+[source."git+https://github.com/gtk-rs/gtk4-rs?branch=0.11"]
 git = "https://github.com/gtk-rs/gtk4-rs"
-branch = "0.10"
+branch = "0.11"
 replace-with = "vendored-sources"
 
 [source."git+https://github.com/rust-av/ffv1.git?rev=bd9eabfc14c9ad53c37b32279e276619f4390ab8"]
@@ -97,9 +98,9 @@ replace-with = "vendored-sources"
 git = "https://github.com/rust-av/flavors"
 replace-with = "vendored-sources"
 
-[source."git+https://gitlab.freedesktop.org/gstreamer/gstreamer-rs?branch=0.24"]
+[source."git+https://gitlab.freedesktop.org/gstreamer/gstreamer-rs?branch=0.25"]
 git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs"
-branch = "0.24"
+branch = "0.25"
 replace-with = "vendored-sources"
 
 [source.vendored-sources]
@@ -130,7 +131,7 @@ mkdir -p %{buildroot}%{_datadir}/appdata
 cp %{SOURCE4} %{buildroot}%{_datadir}/appdata/
 
 %files
-%license LICENSE-APACHE LICENSE-LGPLv2 LICENSE-MIT
+%license LICENSE-APACHE LICENSE-MIT
 %doc README.md
 %dir %{_libdir}/gstreamer-%{gst_branch}
 %{_libdir}/gstreamer-%{gst_branch}/libgstcdg.so
@@ -140,14 +141,14 @@ cp %{SOURCE4} %{buildroot}%{_datadir}/appdata/
 %{_libdir}/gstreamer-%{gst_branch}/libgstdav1d.so
 %{_libdir}/gstreamer-%{gst_branch}/libgstfallbackswitch.so
 %{_libdir}/gstreamer-%{gst_branch}/libgstffv1.so
-%{_libdir}/gstreamer-%{gst_branch}/libgstfmp4.so
+#{_libdir}/gstreamer-%{gst_branch}/libgstfmp4.so
 %{_libdir}/gstreamer-%{gst_branch}/libgstgif.so
 %{_libdir}/gstreamer-%{gst_branch}/libgsthlssink3.so
 %{_libdir}/gstreamer-%{gst_branch}/libgsthsv.so
 %{_libdir}/gstreamer-%{gst_branch}/libgstjson.so
 %{_libdir}/gstreamer-%{gst_branch}/libgstlewton.so
 %{_libdir}/gstreamer-%{gst_branch}/libgstlivesync.so
-%{_libdir}/gstreamer-%{gst_branch}/libgstmp4.so
+#{_libdir}/gstreamer-%{gst_branch}/libgstmp4.so
 %{_libdir}/gstreamer-%{gst_branch}/libgstndi.so
 %{_libdir}/gstreamer-%{gst_branch}/libgstraptorq.so
 %{_libdir}/gstreamer-%{gst_branch}/libgstrav1e.so
@@ -184,6 +185,16 @@ cp %{SOURCE4} %{buildroot}%{_datadir}/appdata/
 %{_libdir}/gstreamer-%{gst_branch}/libgstrsrtsp.so
 %{_libdir}/gstreamer-%{gst_branch}/libgstspeechmatics.so
 %{_libdir}/gstreamer-%{gst_branch}/libgststreamgrouper.so
+%{_libdir}/gstreamer-%{gst_branch}/libgstburn.so
+%{_libdir}/gstreamer-%{gst_branch}/libgstdebugseimetainserter.so
+%{_libdir}/gstreamer-%{gst_branch}/libgstdeepgram.so
+%{_libdir}/gstreamer-%{gst_branch}/libgstdemucs.so
+%{_libdir}/gstreamer-%{gst_branch}/libgsticecast.so
+%{_libdir}/gstreamer-%{gst_branch}/libgstisobmff.so
+%{_libdir}/gstreamer-%{gst_branch}/libgstrsaudioparsers.so
+%{_libdir}/gstreamer-%{gst_branch}/libgsttextaccumulate.so
+%{_libdir}/gstreamer-%{gst_branch}/libgstwhisper.so
+%{_libdir}/gstreamer-%{gst_branch}/validate/libgstrsvalidate.so
 %dir %{_datadir}/appdata
 %{_datadir}/appdata/gstreamer-plugins-rs.appdata.xml
 %{_bindir}/gst-webrtc-signalling-server
