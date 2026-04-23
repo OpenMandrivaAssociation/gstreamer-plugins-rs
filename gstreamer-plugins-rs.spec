@@ -3,7 +3,7 @@
 #%%global __requires_exclude pkgconfig\\(csound\\)
 
 Name:           gstreamer-plugins-rs
-Version:        1.26.10
+Version:        1.28.2
 Release:        1
 Summary:        GStreamer Streaming-Media Framework Plug-Ins
 License:        LGPL-2.1-or-later
@@ -78,14 +78,14 @@ cat >> .cargo/config.toml << EOF
 [source.crates-io]
 replace-with = "vendored-sources"
 
-[source."git+https://github.com/gtk-rs/gtk-rs-core?branch=0.21"]
+[source."git+https://github.com/gtk-rs/gtk-rs-core?branch=0.22"]
 git = "https://github.com/gtk-rs/gtk-rs-core"
-branch = "0.21"
+branch = "0.22"
 replace-with = "vendored-sources"
 
-[source."git+https://github.com/gtk-rs/gtk4-rs?branch=0.10"]
+[source."git+https://github.com/gtk-rs/gtk4-rs?branch=0.11"]
 git = "https://github.com/gtk-rs/gtk4-rs"
-branch = "0.10"
+branch = "0.11"
 replace-with = "vendored-sources"
 
 [source."git+https://github.com/rust-av/ffv1.git?rev=bd9eabfc14c9ad53c37b32279e276619f4390ab8"]
@@ -97,9 +97,9 @@ replace-with = "vendored-sources"
 git = "https://github.com/rust-av/flavors"
 replace-with = "vendored-sources"
 
-[source."git+https://gitlab.freedesktop.org/gstreamer/gstreamer-rs?branch=0.24"]
+[source."git+https://gitlab.freedesktop.org/gstreamer/gstreamer-rs?branch=0.25"]
 git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs"
-branch = "0.24"
+branch = "0.25"
 replace-with = "vendored-sources"
 
 [source.vendored-sources]
