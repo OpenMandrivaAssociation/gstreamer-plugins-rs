@@ -185,6 +185,16 @@ cp %{SOURCE4} %{buildroot}%{_datadir}/appdata/
 %{_libdir}/gstreamer-%{gst_branch}/libgstrsrtsp.so
 %{_libdir}/gstreamer-%{gst_branch}/libgstspeechmatics.so
 %{_libdir}/gstreamer-%{gst_branch}/libgststreamgrouper.so
+%{_libdir}/gstreamer-%{gst_branch}/libgstburn.so
+%{_libdir}/gstreamer-%{gst_branch}/libgstdebugseimetainserter.so
+%{_libdir}/gstreamer-%{gst_branch}/libgstdeepgram.so
+%{_libdir}/gstreamer-%{gst_branch}/libgstdemucs.so
+%{_libdir}/gstreamer-%{gst_branch}/libgsticecast.so
+%{_libdir}/gstreamer-%{gst_branch}/libgstisobmff.so
+%{_libdir}/gstreamer-%{gst_branch}/libgstrsaudioparsers.so
+%{_libdir}/gstreamer-%{gst_branch}/libgsttextaccumulate.so
+%{_libdir}/gstreamer-%{gst_branch}/libgstwhisper.so
+%{_libdir}/gstreamer-%{gst_branch}/validate/libgstrsvalidate.so
 %dir %{_datadir}/appdata
 %{_datadir}/appdata/gstreamer-plugins-rs.appdata.xml
 %{_bindir}/gst-webrtc-signalling-server
