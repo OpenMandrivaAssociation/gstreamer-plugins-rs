@@ -113,7 +113,7 @@ EOF
 export RUSTFLAGS="%{build_rustflags}"
 # as of plugins-rs 1.28.6, rust 1.97.1 and llvm 23.1.0-rc1.
 # Disable LTO because error rustc-LLVM ERROR: expected function definition _RNvCslvstGAdgBpu_7___rustc12___rust_alloc to have an associated value info.
-export RUSTFLAGS="-C lto=off"
+export RUSTFLAGS="-C lto=off -C debuginfo=1"
 %meson \
 	--default-library=shared \
 	-Ddoc=disabled \
@@ -124,7 +124,8 @@ export RUSTFLAGS="-C lto=off"
   	-Dskia=disabled \
 	-Daws=disabled
 
-# rustc at opt-level=3 with debuginfo was SIGKILLed when cargo used every core.
+# rustc at opt-level=3 with debuginfo=2 was SIGKILLed on gst-plugin-webrtc
+# even at 4 jobs. Keep two jobs and line-tables only.
 mem_kb=$(awk '/MemTotal/ { print $2 }' /proc/meminfo)
 for cg in /sys/fs/cgroup/memory.max /sys/fs/cgroup/memory/memory.limit_in_bytes; do
 	if [ -r "$cg" ]; then
@@ -148,8 +149,8 @@ fi
 if [ "$jobs" -gt "$nproc" ]; then
 	jobs=$nproc
 fi
-if [ "$jobs" -gt 4 ]; then
-	jobs=4
+if [ "$jobs" -gt 2 ]; then
+	jobs=2
 fi
 echo "Limiting ninja and cargo to ${jobs} jobs (memory ${mem_kb} kB)"
 export CARGO_BUILD_JOBS="$jobs"
